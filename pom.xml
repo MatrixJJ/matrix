@@ -16,8 +16,16 @@
   </properties>
 
   <modules>
+    <module>matrix-base</module>
     <module>matrix-daily</module>
     <module>matrix-web</module>
   </modules>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.sj</groupId>
+      <artifactId>matrix-base</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+  </dependencies>
 </project>
