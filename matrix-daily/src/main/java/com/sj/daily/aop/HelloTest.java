@@ -5,7 +5,7 @@ public class HelloTest {
         HelloService helloService = new HelloServiceImpl();
         HelloService proxy = (HelloService) ProxyBean.getProxyBean(helloService, new MyInterceptor());
         proxy.sayHello("JJ");
-        System.out.println("#####name is null ######");
+        System.out.println("#x####name is null ######");
         proxy.sayHello(null);
     }
 }

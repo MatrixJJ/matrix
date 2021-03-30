@@ -19,6 +19,7 @@
     <module>matrix-base</module>
     <module>matrix-daily</module>
     <module>matrix-web</module>
+    <module>matrix-data-structure</module>
   </modules>
 
   <dependencies>

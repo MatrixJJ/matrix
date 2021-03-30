@@ -85,6 +85,24 @@
       <scope>compile</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.9</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-all</artifactId>
+      <version>4.1.6.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>io.agora</groupId>
+      <artifactId>signal</artifactId>
+      <version>1.0.0</version>
+      <scope>compile</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
