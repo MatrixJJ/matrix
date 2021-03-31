@@ -1,0 +1,16 @@
+server:
+  port: 9091
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  datasource:
+    url: jdbc:mysql://8.136.119.80:3306/matrix?characterEncoding=utf-8&useSSL=false&useUnicode=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: sj
+    password: sj.15421
+mybatis:
+  mapper-locations: classpath*:/com/sj/**/mapper/*.xml
+  type-aliases-package: com.sj.**.domain
+  configuration:
+    map-underscore-to-camel-case: true #属性名和数据库字段名 开启驼峰功能
+
