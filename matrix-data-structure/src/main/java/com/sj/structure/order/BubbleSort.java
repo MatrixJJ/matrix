@@ -19,12 +19,13 @@ public class BubbleSort {
                 break;
             }
         }
-        return arr ;
+        return arr;
     }
 
+
     public static void main(String[] args) {
-        int[] arr = {1,5,2,9,22,11,3} ;
-        bubbleSort(arr) ;
+        int[] arr = {1, 5, 2, 9, 22, 11, 3};
+        bubbleSort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
