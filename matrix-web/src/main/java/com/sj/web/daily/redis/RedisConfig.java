@@ -25,7 +25,7 @@ public class RedisConfig {
         poolConfig.setMaxWaitMillis(2000);
         JedisConnectionFactory connectionFactory = new JedisConnectionFactory(poolConfig);
         RedisStandaloneConfiguration rsCfg = connectionFactory.getStandaloneConfiguration();
-        connectionFactory.setHostName("192 . 168 . 11 . 131" );
+        connectionFactory.setHostName("192.168.11.131" );
         connectionFactory.setPort(6379);
         connectionFactory.setPassword("123456");
         this.connectionFactory = connectionFactory;
