@@ -17,30 +17,29 @@ public class MergeTest {
 
     private static int Max = 100;
 
-    private static int ints[] = new int[100];
+    private static int inits[] = new int[Max];
 
     static {
         Random r = new Random();
-        for (int i = 0; i <= Max; i++) {
-            ints[i - 1] = r.nextInt(1000);
+        for (int i = 1; i <= Max; i++) {
+            inits[i - 1] = r.nextInt(1000);
         }
     }
 
     public static void main(String[] args) {
         long beginTime = System.currentTimeMillis();
         ForkJoinPool pool = new ForkJoinPool();
-        MyTask task = new MyTask(ints);
+        MyTask task = new MyTask(inits);
         ForkJoinTask<int[]> taskResult = pool.submit(task);
         int[] ints = new int[0];
         try {
             ints = taskResult.get();
+            System.out.println(Arrays.toString(ints));
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        System.out.println(Arrays.toString(ints));
-
         long endTime = System.currentTimeMillis();
         System.out.println("耗时：" + (endTime - beginTime));
 
@@ -82,11 +81,29 @@ public class MergeTest {
             }
         }
 
-        private static int[] joinInts(int arr1[], int arr2[]){
-            int destInts[] = new int [arr1.length+arr2.length] ;
-            int arr1Len = arr1.length ;
-            int arr2Len = arr2.length ;
-            return destInts ;
+        private static int[] joinInts(int array1[], int array2[]){
+            int destInts[] = new int[array1.length + array2.length];
+            int array1Len = array1.length;
+            int array2Len = array2.length;
+            int destLen = destInts.length;
+
+            // 只需要以新的集合destInts的长度为标准，遍历一次即可
+            for (int index = 0, array1Index = 0, array2Index = 0; index < destLen; index++) {
+                int value1 = array1Index >= array1Len ? Integer.MAX_VALUE : array1[array1Index];
+                int value2 = array2Index >= array2Len ? Integer.MAX_VALUE : array2[array2Index];
+                // 如果条件成立，说明应该取数组array1中的值
+                if (value1 < value2) {
+                    array1Index++;
+                    destInts[index] = value1;
+                }
+                // 否则取数组array2中的值
+                else {
+                    array2Index++;
+                    destInts[index] = value2;
+                }
+            }
+
+            return destInts;
         }
     }
 
