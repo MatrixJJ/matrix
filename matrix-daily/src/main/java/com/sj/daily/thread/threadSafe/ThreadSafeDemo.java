@@ -19,23 +19,21 @@ public class ThreadSafeDemo {
 
     public static void main(String[] args) throws InterruptedException {
         int size = 3;
-
-        ThreadSafeDemo threadSafeDemo = new ThreadSafeDemo();
-
         CountDownLatch countDownLatch = new CountDownLatch(1);
         for (int i = 0; i < size; i++) {
             new Thread(()->{
                 try {
+                    System.out.println("前"+System.currentTimeMillis());
                     countDownLatch.await();
-                    System.out.println(System.currentTimeMillis());
-//                    Thread.sleep(100);
+                    System.out.println("后"+System.currentTimeMillis());
+                    //Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }).start();
         }
 
-        Thread.sleep(100);
+        Thread.sleep(3000);
         countDownLatch.countDown();
     }
 }
