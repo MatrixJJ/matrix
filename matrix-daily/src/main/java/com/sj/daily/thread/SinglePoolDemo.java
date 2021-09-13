@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 public class SinglePoolDemo {
     public static void main(String[] args) {
-        //可变的
+        //单线程
         ExecutorService pools= Executors.newSingleThreadExecutor() ;
         for (int i = 0; i < 10; i++) {
             //创建任务

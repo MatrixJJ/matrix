@@ -8,6 +8,19 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: sj
     password: sj.15421
+  redis:
+    database: 0  #默认登录的数据库 0
+    timeout: 3000
+    password: redis.15421
+    cluster:  #外网ip 集群 要开放集群总线端口  其端口为客户端连接端口加上10000，即 6379 + 10000 = 16379  配安全组
+     #nodes: 172.22.118.223:8001,172.22.118.223:8002,172.22.118.223:8003,172.22.118.223:6380,172.22.118.223:6381,172.22.118.223:6382
+      nodes: 8.136.119.80:8001,8.136.119.80:8002,8.136.119.80:8003,8.136.119.80:6380,8.136.119.80:6381,8.136.119.80:6382
+    lettuce:   #Lettuce 是一个可伸缩线程安全的 Redis 客户端，多个线程可以共享同一个 RedisConnection，它利用优秀 netty NIO 框架来高效地管理多个连接
+      pool:
+        max-idle: 50  # 连接池中的最大空闲连接
+        min-idle: 10
+        max-active: 100 # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: 1000  # 连接池最大阻塞等待时间（使用负值表示没有限制）
 mybatis:
   mapper-locations: classpath*:/com/sj/**/mapper/*.xml
   type-aliases-package: com.sj.**.domain

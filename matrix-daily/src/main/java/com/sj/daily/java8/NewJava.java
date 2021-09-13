@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author ShengJie.Wang
@@ -25,7 +26,9 @@ public class NewJava {
     names1.add("Baidu ");
     names1.add("Sina ");
     test.sortUsingJava8(names1) ;
+    System.out.println(names1);
     Arrays.asList( "a", "c", "b" ).forEach( ( String e ) -> System.out.println( e ) );
+    ConcurrentHashMap<String,Object> map = new ConcurrentHashMap(8) ;
   }
 
 
