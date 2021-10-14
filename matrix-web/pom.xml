@@ -67,6 +67,7 @@
       <version>2.3.5.RELEASE</version>
     </dependency>
 
+    <!--jedis-->
     <dependency>
       <groupId>redis.clients</groupId>
       <artifactId>jedis</artifactId>
@@ -106,6 +107,34 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <skip>true</skip>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>1.4.13</version>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>build</goal>
+              <goal>push</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <repository>${project.artifactId}</repository>
+          <tag>${project.version}</tag>
+          <!--maven setting.xml 文件中配置-->
+          <!--<username>943100171</username>-->
+          <!--<password>sj.15421</password>-->
+      <!--    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>-->
+          <!--指定一个或多个变量，传递给Dockerfile-->
+          <buildArgs>
+            <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+          </buildArgs>
+
         </configuration>
       </plugin>
     </plugins>
