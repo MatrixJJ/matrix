@@ -23,7 +23,7 @@ public class RedisController {
   @GetMapping("/redis")
   public String  testRedis() {
     redisTemplate.opsForValue().set("sj", "test");
-    redisTemplate.opsForValue().set("sj", "redis ok!", Duration.ofDays(1));
+    redisTemplate.opsForValue().set("sj", "sj-redis yes!", Duration.ofDays(1));
     //redisTemplate.delete("sj") ;
     System.out.println(redisTemplate.opsForValue().get("sj"));
     return redisTemplate.opsForValue().get("sj") ;

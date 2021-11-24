@@ -26,6 +26,8 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
+      <!--jdk 版本高了-->
+      <version>1.18.20</version>
       <optional>true</optional>
     </dependency>
     <dependency>
@@ -134,7 +136,6 @@
           <buildArgs>
             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
           </buildArgs>
-
         </configuration>
       </plugin>
     </plugins>

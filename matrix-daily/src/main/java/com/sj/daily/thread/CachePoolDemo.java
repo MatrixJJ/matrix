@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 public class CachePoolDemo {
     public static void main(String[] args) {
-        //可变的
+        //可变的 ，缓存线程池
         ExecutorService pools= Executors.newCachedThreadPool() ;
         for (int i = 0; i < 10; i++) {
             //创建任务
